@@ -26,7 +26,7 @@
 
     var camera, scene, renderer;
 
-    var controls;       //控制器
+    var controls;       //
 
     var targetRotation = 0;
     var targetRotationOnMouseDown = 0;
@@ -34,14 +34,14 @@
     var mouseX = 0;
     var mouseXOnMouseDown = 0;
     var img;
-    var load_over = false; //加载完成
+    var load_over = false; //loading completed
 
     var windowHalfX = window.innerWidth / 2;
     var windowHalfY = window.innerHeight / 2;
 
     var canvas;
     var content;
-    var particles;  //粒子
+    var particles;  //particles
     var imgDate;
     init();
     animate();
@@ -60,7 +60,7 @@
         img.onload = function () {
             content.drawImage(img, 10, 10, canvas.width, canvas.height);
             imgDate = content.getImageData(0,0,canvas.width, canvas.height);
-            createPotCloud();   //创建点云
+            createPotCloud();   //to create some particles
         };
 
         container = document.createElement( 'div' );
@@ -72,7 +72,7 @@
         info.style.top = '10px';
         info.style.width = '100%';
         info.style.textAlign = 'center';
-        info.innerHTML = '图像转换';
+        info.innerHTML = 'image conversion';
         container.appendChild( info );
 
         scene = new THREE.Scene();
@@ -82,7 +82,7 @@
         scene.add( camera );
 
 
-        //控制器
+        //the controller
         controls = new THREE.TrackballControls( camera );
         controls.rotateSpeed = 1;
         controls.zoomSpeed = 1.2;
@@ -206,7 +206,7 @@
         controls.update();
 
     }
-    function createPotCloud() {     //创建点云
+    function createPotCloud() {     //create particles
         console.log(imgDate);
         var particles = canvas.width * canvas.height;
         var geometry = new THREE.BufferGeometry();
